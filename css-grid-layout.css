@@ -22,14 +22,13 @@ body {
     background-color: #fff;
     margin: 0 auto;
     padding: 0 60px;
-
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas: 
-        "header header"
-        "main sidebar"
+    grid-template-areas:
+        "header   button"
+        "main      sidebar"
         "footer footer";
-    grid-gap: 60px;
+    grid-gap: 2rem;
+    grid-template-columns: minmax(1fr, 2fr) minmax(1fr, 1fr);
 }
 
 /* Header */
@@ -39,9 +38,6 @@ header{
 
     color: #ef5350;
     padding: 20px 0;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
 }
 
 header nav {
@@ -61,6 +57,8 @@ header nav li {
 }
 
 header button {
+    grid-area: button;
+
     justify-self: end;
 
     background-color: #ef5350;
@@ -97,7 +95,6 @@ header button {
 
 .sidebar {
     grid-area: sidebar;
-
     border: 1px solid #a2a2a2;
     padding: 20px;
 }
@@ -116,17 +113,4 @@ footer p {
     color: #777;
     font-size: 12px;
     padding: 10px;
-}
-
-
-@media (max-width: 600px) {
-    .container{
-        /*  Redefine the grid into a single column layout. */
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            "header"
-            "main"
-            "sidebar"
-            "footer";
-    }
 }
